@@ -3,66 +3,205 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hot Beans Web - Company Info</title>
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Optional custom styles -->
+<title>Company Wireframe Layout</title>
 <style>
-  /* Custom styles for responsiveness and spacing */
-  body { background-color: #f8f9fa; }
-  .logo { max-height: 60px; cursor: pointer; }
-  /* Dropdown menu positioning */
-  #dropdownMenu { right: 20px; }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    background-color: #f0f0f0;
+  }
+
+  /* Sidebar for content types */
+  .content-types {
+    grid-column: 6 / 7;
+    background-color: #dcdcdc;
+    padding: 10px;
+  }
+
+  /* Sections styling */
+  section {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header (logo) */
+  .logo {
+    height: 50px;
+    background-color: #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  /* Common placeholders */
+  .placeholder {
+    background-color: #ddd;
+    border: 1px dashed #999;
+    height: 100px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+  }
+
+  /* Specific placeholder heights */
+  .company-image {
+    height: 150px;
+  }
+
+  .employee-block, .job-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .employee-image, .job-image, .stock-photo {
+    height: 80px;
+    width: 100%;
+  }
+
+  /* For side-by-side items in section 3, 3rd block */
+  .side-by-side {
+    display: flex;
+    gap: 10px;
+  }
+
+  .side-by-side .placeholder {
+    flex: 1;
+    height: 80px;
+  }
+
+  /* Footer links */
+  .footer {
+    margin-top: auto;
+  }
+
+  a {
+    color: blue;
+    text-decoration: underline;
+    font-size: 0.9em;
+  }
+
+  /* Privacy Policy section */
+  #privacy-policy {
+    grid-column: 1 / span 5;
+    background-color: #eef;
+    padding: 20px;
+  }
+
+  /* Navigation (rightmost column) styling */
+  .nav-column {
+    grid-column: 6 / 7;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Responsive adjustments */
+  @media(max-width: 1200px){
+    body {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
 </style>
 </head>
 <body>
 
-<header class="container-fluid bg-dark text-white position-relative">
-  <div class="d-flex align-items-center justify-content-between p-2">
-    <a href="index.html" class="d-flex align-items-center">
-      <img src="https://lh3.googleusercontent.com/drive-storage/AJQWtBO-ggIitxi5C0uXHYfpads6QjT3dBGcKSNuMH9oMMzi1Bj1sdzuhZRYJyOZpCOijyjkEyM39tscY7GFUUA7rjX6mAYC25T0vCcsh2JUF6u84A=w958-h910" class="logo" alt="Company Logo" />
-    </a>
-    <button class="btn btn-outline-light" id="menuToggle" aria-expanded="false" aria-controls="dropdownMenu" aria-label="Toggle navigation">
-      ☰
-    </button>
-    <div class="dropdown-menu position-absolute" id="dropdownMenu">
-      <a class="dropdown-item" href="index.html">Company Info</a>
-      <a class="dropdown-item" href="trainees.html">Existing Trainees</a>
-      <a class="dropdown-item" href="application.html">Application Form</a>
-    </div>
+<!-- Section 1: Company Overview -->
+<section>
+  <div class="logo">Company Logo</div>
+  <div class="placeholder company-image">Company Image Placeholder</div>
+  <div class="placeholder">Description of Company</div>
+  <div class="placeholder"><a href="#">Links to Web Development Courses</a></div>
+  <div class="footer">
+    <a href="#privacy-policy">Link to Privacy Policy</a><br/>
+    <a href="#">Other Details and Links</a>
   </div>
-</header>
+</section>
 
-<main class="container my-4" role="main">
-  <section class="text-center mb-4">
-    <h1>About Hot Beans Web</h1>
-    <img src="https://via.placeholder.com/800x400?text=Company+Image" class="img-fluid my-3" alt="Company Image" />
-    <p class="lead">Hot Beans Web is a leading web development company dedicated to creating innovative digital solutions. Our team of passionate developers strives to deliver high-quality websites and applications worldwide.</p>
-  </section>
-  <section>
-    <h2>Web Development Courses We Recommend</h2>
-    <ul class="list-group list-group-flush mb-4">
-      <li class="list-group-item"><a href="#">FreeCodeCamp</a></li>
-      <li class="list-group-item"><a href="#">Codecademy</a></li>
-      <li class="list-group-item"><a href="#">Udemy Web Development Courses</a></li>
-    </ul>
-  </section>
-</main>
+<!-- Section 2: Introduction to Employees -->
+<section>
+  <div class="logo">Company Logo</div>
+  <div class="placeholder">Meet Our Team</div>
+  <!-- Employee Content Blocks -->
+  <div class="employee-block">
+    <div class="placeholder employee-image">Employee Image</div>
+    <div class="placeholder">Talk from Trainee</div>
+  </div>
+  <div class="employee-block">
+    <div class="placeholder employee-image">Employee Image</div>
+    <div class="placeholder">Talk from Trainee</div>
+  </div>
+  <div class="employee-block">
+    <div class="placeholder employee-image">Employee Image</div>
+    <div class="placeholder">Talk from Trainee</div>
+  </div>
+  <div class="footer">
+    <a href="#privacy-policy">Link to Privacy Policy</a><br/>
+    <a href="#">Other Details and Links</a>
+  </div>
+</section>
 
-<footer class="bg-dark text-white text-center py-3">
-  <a href="privacy.html" class="text-white me-3">Privacy Policy</a> | &copy; 2024 Hot Beans Web
-</footer>
+<!-- Section 3: Job Specifications -->
+<section>
+  <div class="logo">Company Logo</div>
+  <div class="placeholder">Job Opportunities</div>
+  <!-- Job Content Blocks -->
+  <div class="placeholder">Web Design Role Description</div>
+  <!-- Side by side image and description -->
+  <div class="side-by-side">
+    <div class="placeholder job-image">Job Image</div>
+    <div class="placeholder">Web Developer Role Description</div>
+  </div>
+  <div class="placeholder"><a href="#">Links to Web Development Courses</a></div>
+  <div class="footer">
+    <a href="#privacy-policy">Link to Privacy Policy</a><br/>
+    <a href="#">Other Details and Links</a>
+  </div>
+</section>
 
-<!-- Bootstrap JS Bundle (includes Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Custom JS for menu toggle -->
-<script>
-  document.getElementById('menuToggle').addEventListener('click', function() {
-    const menu = document.getElementById('dropdownMenu');
-    const expanded = this.getAttribute('aria-expanded') === 'true' || false;
-    this.setAttribute('aria-expanded', String(!expanded));
-    menu.classList.toggle('show');
-  });
-</script>
+<!-- Section 4: Application Form -->
+<section>
+  <div class="logo">Company Logo</div>
+  <div class="placeholder">Apply Now</div>
+  <div class="placeholder">Application Form Info Box</div>
+  <!-- Application Enter Boxes with arrows (visualized as vertical stack) -->
+  <div class="application-box" style="display:flex; flex-direction:column; gap:10px;">
+    <div class="placeholder">Application Enter Box 1</div>
+    <div class="placeholder">Application Enter Box 2</div>
+    <div class="placeholder">Application Enter Box 3</div>
+  </div>
+  <!-- Stock Photo to the right -->
+  <div style="display:flex; gap:10px; margin-top:10px;">
+    <div class="placeholder" style="flex:1;">Application Stock Photo</div>
+  </div>
+  <div class="footer">
+    <a href="#privacy-policy">Link to Privacy Policy</a><br/>
+    <a href="#">Other Details and Links</a>
+  </div>
+</section>
+
+<!-- Privacy Policy Section -->
+<section id="privacy-policy">
+  <h2>Privacy Policy</h2>
+  <div class="placeholder" style="height:200px;">Privacy Policy Text Placeholder</div>
+</section>
+
+<!-- Rightmost Content Types Column -->
+<div class="nav-column">
+  <div class="placeholder">Existing Trainees</div>
+  <div class="placeholder">Application Form</div>
+  <div class="placeholder">Job Roles</div>
+</div>
+
 </body>
 </html>
