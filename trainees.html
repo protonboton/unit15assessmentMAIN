@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hot Beans Web - Trainees</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body { background-color: #f8f9fa; }
+</style>
+</head>
+<body>
+
+<header class="container-fluid bg-dark text-white position-relative">
+  <div class="d-flex align-items-center justify-content-between p-2">
+    <a href="index.html" class="d-flex align-items-center">
+      <img src="https://lh3.googleusercontent.com/drive-storage/AJQWtBO-ggIitxi5C0uXHYfpads6QjT3dBGcKSNuMH9oMMzi1Bj1sdzuhZRYJyOZpCOijyjkEyM39tscY7GFUUA7rjX6mAYC25T0vCcsh2JUF6u84A=w958-h910" class="logo" alt="Company Logo" />
+    </a>
+    <button class="btn btn-outline-light" id="menuToggle" aria-expanded="false" aria-controls="dropdownMenu" aria-label="Toggle navigation">
+      ☰
+    </button>
+    <div class="dropdown-menu position-absolute" id="dropdownMenu">
+      <a class="dropdown-item" href="index.html">Company Info</a>
+      <a class="dropdown-item" href="trainees.html">Existing Trainees</a>
+      <a class="dropdown-item" href="application.html">Application Form</a>
+    </div>
+  </div>
+</header>
+
+<main class="container my-4" role="main">
+  <h1 class="mb-4 text-center">Meet Our Trainees</h1>
+  
+  <!-- Trainee 1 -->
+  <div class="row mb-4 align-items-center">
+    <div class="col-md-4">
+      <img src="https://via.placeholder.com/300x200?text=Trainee+1" class="img-fluid rounded" alt="Trainee Jane" />
+    </div>
+    <div class="col-md-8">
+      <h3>Jane Doe</h3>
+      <p>Jane recently completed a front-end development course and is passionate about creating engaging user interfaces. She is eager to join our team and contribute her skills.</p>
+    </div>
+  </div>
+  <!-- Trainee 2 -->
+  <div class="row mb-4 align-items-center flex-md-row-reverse">
+    <div class="col-md-4">
+      <img src="https://via.placeholder.com/300x200?text=Trainee+2" class="img-fluid rounded" alt="Trainee John" />
+    </div>
+    <div class="col-md-8">
+      <h3>John Smith</h3>
+      <p>John specializes in back-end development and has experience with server-side technologies. He is excited to develop scalable web applications.</p>
+    </div>
+  </div>
+  
+  <h2>Recommended Web Development Courses</h2>
+  <ul class="list-group mb-4">
+    <li class="list-group-item"><a href="#">FreeCodeCamp</a></li>
+    <li class="list-group-item"><a href="#">Codecademy</a></li>
+    <li class="list-group-item"><a href="#">Udemy Web Development Courses</a></li>
+  </ul>
+</main>
+
+<footer class="bg-dark text-white text-center py-3">
+  <a href="privacy.html" class="text-white me-3">Privacy Policy</a> | &copy; 2024 Hot Beans Web
+</footer>
+
+<script>
+  document.getElementById('menuToggle').addEventListener('click', function() {
+    const menu = document.getElementById('dropdownMenu');
+    const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+    this.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('show');
+  });
+</script>
+</body>
+</html>
