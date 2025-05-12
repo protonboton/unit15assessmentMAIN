@@ -1,207 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Company Wireframe Layout</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    gap: 10px;
-    background-color: #f0f0f0;
-  }
-
-  /* Sidebar for content types */
-  .content-types {
-    grid-column: 6 / 7;
-    background-color: #dcdcdc;
-    padding: 10px;
-  }
-
-  /* Sections styling */
-  section {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Header (logo) */
-  .logo {
-    height: 50px;
-    background-color: #bbb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  /* Common placeholders */
-  .placeholder {
-    background-color: #ddd;
-    border: 1px dashed #999;
-    height: 100px;
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #555;
-  }
-
-  /* Specific placeholder heights */
-  .company-image {
-    height: 150px;
-  }
-
-  .employee-block, .job-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .employee-image, .job-image, .stock-photo {
-    height: 80px;
-    width: 100%;
-  }
-
-  /* For side-by-side items in section 3, 3rd block */
-  .side-by-side {
-    display: flex;
-    gap: 10px;
-  }
-
-  .side-by-side .placeholder {
-    flex: 1;
-    height: 80px;
-  }
-
-  /* Footer links */
-  .footer {
-    margin-top: auto;
-  }
-
-  a {
-    color: blue;
-    text-decoration: underline;
-    font-size: 0.9em;
-  }
-
-  /* Privacy Policy section */
-  #privacy-policy {
-    grid-column: 1 / span 5;
-    background-color: #eef;
-    padding: 20px;
-  }
-
-  /* Navigation (rightmost column) styling */
-  .nav-column {
-    grid-column: 6 / 7;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  /* Responsive adjustments */
-  @media(max-width: 1200px){
-    body {
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Beans Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for any elements that need extra styling */
+        .logo-placeholder {
+            width: 200px;
+            height: 80px;
+            background-color: #f97316;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+       
+        .company-image {
+            width: 100%;
+            height: 400px;
+            background-color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+       
+        .course-card {
+            transition: transform 0.3s ease;
+        }
+       
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+       
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 1rem;
+            top: 5rem;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            border-radius: 0.5rem;
+            width: 200px;
+        }
+       
+        .dropdown-menu.active {
+            display: block;
+        }
+       
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #4b5563;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+       
+        .dropdown-menu a:hover {
+            background-color: #ffedd5;
+            color: #f97316;
+        }
+       
+        .dropdown-menu a:first-child {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+       
+        .dropdown-menu a:last-child {
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+       
+        .hamburger-btn {
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s ease;
+        }
+       
+        .hamburger-btn:hover {
+            background-color: #ffedd5;
+        }
+       
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+       
+        .logo-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+       
+        .trainee-image {
+            width: 300px;
+            height: 300px;
+            background-color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+       
+        .trainee-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+       
+        .trainee-text {
+            flex: 1;
+        }
+       
+        /* Page transition */
+        .page {
+            display: none;
+        }
+       
+        .page.active {
+            display: block;
+        }
+       
+        /* Form styling */
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+       
+        .form-input:focus {
+            border-color: #f97316;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+        }
+       
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+       
+        .submit-btn {
+            background-color: #f97316;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+       
+        .submit-btn:hover {
+            background-color: #ea580c;
+            transform: translateY(-2px);
+        }
+       
+        .form-image {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background-color: #e5e7eb;
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 font-sans">
+    <!-- Header with logo and navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 relative">
+            <div class="header-content">
+                <!-- Empty div to balance the hamburger menu -->
+                <div class="w-8"></div>
+               
+                <!-- Logo container centered absolutely -->
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        HOT BEANS WEB
+                    </div>
+                </div>
+               
+                <!-- Hamburger menu button -->
+                <div class="relative">
+                    <button id="menu-toggle" class="hamburger-btn text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <div id="dropdown-menu" class="dropdown-menu">
+                        <a href="#" class="nav-link text-orange-500 font-medium" data-page="company-info">Company Info</a>
+                        <a href="#" class="nav-link text-gray-600" data-page="existing-trainees">Existing Trainees</a>
+                        <a href="#" class="nav-link text-gray-600" data-page="application-form">Application Form</a>
+                        <a href="#" class="nav-link text-gray-600">Job Roles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<!-- Section 1: Company Overview -->
-<section>
-  <div class="logo">Company Logo</div>
-  <div class="placeholder company-image">Company Image Placeholder</div>
-  <div class="placeholder">Description of Company</div>
-  <div class="placeholder"><a href="#">Links to Web Development Courses</a></div>
-  <div class="footer">
-    <a href="#privacy-policy">Link to Privacy Policy</a><br/>
-    <a href="#">Other Details and Links</a>
-  </div>
-</section>
 
-<!-- Section 2: Introduction to Employees -->
-<section>
-  <div class="logo">Company Logo</div>
-  <div class="placeholder">Meet Our Team</div>
-  <!-- Employee Content Blocks -->
-  <div class="employee-block">
-    <div class="placeholder employee-image">Employee Image</div>
-    <div class="placeholder">Talk from Trainee</div>
-  </div>
-  <div class="employee-block">
-    <div class="placeholder employee-image">Employee Image</div>
-    <div class="placeholder">Talk from Trainee</div>
-  </div>
-  <div class="employee-block">
-    <div class="placeholder employee-image">Employee Image</div>
-    <div class="placeholder">Talk from Trainee</div>
-  </div>
-  <div class="footer">
-    <a href="#privacy-policy">Link to Privacy Policy</a><br/>
-    <a href="#">Other Details and Links</a>
-  </div>
-</section>
+    <!-- Company Info Page (Home) -->
+    <main id="company-info" class="page active container mx-auto px-4 py-8">
+        <!-- Company image placeholder -->
+        <div class="company-image rounded-lg">
+            <span class="text-gray-500 text-xl">Company Image Placeholder</span>
+        </div>
+               
+        <!-- Company description -->
+        <section class="mb-12">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">About Hot Beans Web</h1>
+            <div class="prose max-w-none text-gray-600">
+                <p>Welcome to Hot Beans Web, a leading web development company specializing in creating innovative digital solutions for businesses of all sizes. Founded in 2010, we've grown from a small startup to a team of over 50 talented developers, designers, and digital strategists.</p>
+                <p class="mt-4">At Hot Beans Web, we believe in the power of technology to transform businesses and create meaningful connections with customers. Our team is passionate about crafting beautiful, functional websites and web applications that drive results.</p>
+                <p class="mt-4">We pride ourselves on our collaborative approach, working closely with clients to understand their unique needs and deliver tailored solutions that exceed expectations. Our company culture fosters creativity, continuous learning, and professional growth.</p>
+            </div>
+        </section>
+               
+        <!-- Web development courses section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Web Development Courses</h2>
+            <p class="text-gray-600 mb-6">Interested in becoming a web developer? Check out these recommended courses to get started:</p>
+                       
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Course card 1 -->
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                    <div class="h-40 bg-blue-100 flex items-center justify-center">
+                        <span class="text-blue-500">Course Image</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Frontend Development</h3>
+                        <p class="text-gray-600 mb-4">Learn HTML, CSS, and JavaScript to build beautiful, interactive websites.</p>
+                        <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
+                    </div>
+                </div>
+                               
+                <!-- Course card 2 -->
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                    <div class="h-40 bg-purple-100 flex items-center justify-center">
+                        <span class="text-purple-500">Course Image</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Backend Development</h3>
+                        <p class="text-gray-600 mb-4">Master server-side programming with Node.js, Python, or PHP.</p>
+                        <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
+                    </div>
+                </div>
+                               
+                <!-- Course card 3 -->
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                    <div class="h-40 bg-green-100 flex items-center justify-center">
+                        <span class="text-green-500">Course Image</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Full-Stack Development</h3>
+                        <p class="text-gray-600 mb-4">Become a versatile developer by learning both frontend and backend technologies.</p>
+                        <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<!-- Section 3: Job Specifications -->
-<section>
-  <div class="logo">Company Logo</div>
-  <div class="placeholder">Job Opportunities</div>
-  <!-- Job Content Blocks -->
-  <div class="placeholder">Web Design Role Description</div>
-  <!-- Side by side image and description -->
-  <div class="side-by-side">
-    <div class="placeholder job-image">Job Image</div>
-    <div class="placeholder">Web Developer Role Description</div>
-  </div>
-  <div class="placeholder"><a href="#">Links to Web Development Courses</a></div>
-  <div class="footer">
-    <a href="#privacy-policy">Link to Privacy Policy</a><br/>
-    <a href="#">Other Details and Links</a>
-  </div>
-</section>
 
-<!-- Section 4: Application Form -->
-<section>
-  <div class="logo">Company Logo</div>
-  <div class="placeholder">Apply Now</div>
-  <div class="placeholder">Application Form Info Box</div>
-  <!-- Application Enter Boxes with arrows (visualized as vertical stack) -->
-  <div class="application-box" style="display:flex; flex-direction:column; gap:10px;">
-    <div class="placeholder">Application Enter Box 1</div>
-    <div class="placeholder">Application Enter Box 2</div>
-    <div class="placeholder">Application Enter Box 3</div>
-  </div>
-  <!-- Stock Photo to the right -->
-  <div style="display:flex; gap:10px; margin-top:10px;">
-    <div class="placeholder" style="flex:1;">Application Stock Photo</div>
-  </div>
-  <div class="footer">
-    <a href="#privacy-policy">Link to Privacy Policy</a><br/>
-    <a href="#">Other Details and Links</a>
-  </div>
-</section>
+    <!-- Existing Trainees Page -->
+    <main id="existing-trainees" class="page container mx-auto px-4 py-8">
+        <!-- Introduction to trainees -->
+        <section class="mb-12">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Meet Our Trainees</h1>
+            <div class="prose max-w-none text-gray-600">
+                <p>At Hot Beans Web, we're proud to nurture the next generation of web development talent. Our trainees come from diverse backgrounds but share a common passion for creating exceptional digital experiences.</p>
+                <p class="mt-4">Here are some of our current trainees who are making waves in our development team. Each brings unique skills and perspectives to our projects, helping us deliver innovative solutions to our clients.</p>
+            </div>
+        </section>
+       
+        <!-- Trainee 1 -->
+        <section class="trainee-section">
+            <div class="trainee-image">
+                <span class="text-gray-500">Trainee Photo</span>
+            </div>
+            <div class="trainee-text">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Sarah Johnson</h2>
+                <p class="text-gray-600 mb-4">"Joining Hot Beans Web as a trainee has been an incredible learning experience. The mentorship program has helped me grow from a beginner to confidently working on live client projects in just six months."</p>
+                <p class="text-gray-600">Specializing in frontend development with React, Sarah has already contributed to three major client projects and is now leading the UI development for a new e-commerce platform.</p>
+            </div>
+        </section>
+       
+        <!-- Trainee 2 -->
+        <section class="trainee-section">
+            <div class="trainee-text">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Michael Chen</h2>
+                <p class="text-gray-600 mb-4">"The hands-on approach at Hot Beans Web is exactly what I needed to transition from self-taught programmer to professional developer. The code reviews and pair programming sessions have dramatically improved my skills."</p>
+                <p class="text-gray-600">With a passion for backend systems, Michael has been instrumental in optimizing database queries that reduced page load times by 40% for one of our largest clients.</p>
+            </div>
+            <div class="trainee-image">
+                <span class="text-gray-500">Trainee Photo</span>
+            </div>
+        </section>
+       
+        <!-- Trainee 3 -->
+        <section class="trainee-section">
+            <div class="trainee-image">
+                <span class="text-gray-500">Trainee Photo</span>
+            </div>
+            <div class="trainee-text">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Emma Rodriguez</h2>
+                <p class="text-gray-600 mb-4">"What I appreciate most about the Hot Beans Web training program is how we're encouraged to explore different aspects of web development. I started focusing on design but discovered a love for accessibility engineering."</p>
+                <p class="text-gray-600">Emma's work on implementing WCAG standards across our client projects has not only improved accessibility but also enhanced SEO performance by an average of 25%.</p>
+            </div>
+        </section>
+    </main>
 
-<!-- Privacy Policy Section -->
-<section id="privacy-policy">
-  <h2>Privacy Policy</h2>
-  <div class="placeholder" style="height:200px;">Privacy Policy Text Placeholder</div>
-</section>
 
-<!-- Rightmost Content Types Column -->
-<div class="nav-column">
-  <div class="placeholder">Existing Trainees</div>
-  <div class="placeholder">Application Form</div>
-  <div class="placeholder">Job Roles</div>
-</div>
+    <!-- Application Form Page -->
+    <main id="application-form" class="page container mx-auto px-4 py-8">
+        <!-- Form title -->
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 ml-4">Join Our Team</h1>
+       
+        <!-- Form introduction -->
+        <section class="mb-12 text-center max-w-3xl mx-auto">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Application for Web Development Trainee Position</h2>
+            <p class="text-gray-600 mb-6">
+                We're excited you're interested in joining Hot Beans Web! Please fill out the form below to apply for our trainee program.
+                Our team will review your application and get back to you within 2 weeks.
+            </p>
+        </section>
+       
+        <!-- Application form -->
+        <form class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+            <!-- Name input -->
+            <div>
+                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+            </div>
+           
+            <!-- Email input -->
+            <div>
+                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                <input type="email" id="email" class="form-input" placeholder="Enter your email address" required>
+            </div>
+           
+            <!-- Experience input -->
+            <div>
+                <label for="experience" class="block text-gray-700 font-medium mb-2">Web Development Experience</label>
+                <input type="text" id="experience" class="form-input" placeholder="Briefly describe your experience (years, projects, etc.)">
+            </div>
+           
+            <!-- Suitability input -->
+            <div>
+                <label for="suitability" class="block text-gray-700 font-medium mb-2">Why You're a Good Fit</label>
+                <textarea id="suitability" class="form-input form-textarea" placeholder="Explain why you think you'd be a great fit for our trainee program"></textarea>
+            </div>
+           
+            <!-- Submit button -->
+            <div class="text-center">
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </div>
+        </form>
+       
+        <!-- Stock photo placeholder -->
+        <div class="form-image">
+            <span class="text-gray-500">Stock Photo Placeholder</span>
+        </div>
+    </main>
 
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-bold mb-2">Hot Beans Web</h3>
+                    <p class="text-gray-300">123 Tech Street, Digital City</p>
+                    <p class="text-gray-300">Phone: (123) 456-7890</p>
+                    <p class="text-gray-300">Email: info@hotbeansweb.com</p>
+                </div>
+                <div>
+                    <a href="#" class="text-orange-400 hover:underline">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Hot Beans Web. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Hamburger menu functionality
+        document.getElementById('menu-toggle').addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent the click from bubbling up
+            document.getElementById('dropdown-menu').classList.toggle('active');
+        });
+
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            const dropdown = document.getElementById('dropdown-menu');
+            dropdown.classList.remove('active');
+        });
+
+
+        // Prevent dropdown from closing when clicking inside it
+        document.getElementById('dropdown-menu').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+
+        // Page navigation functionality
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+               
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+               
+                // Show selected page
+                if (pageId) {
+                    document.getElementById(pageId).classList.add('active');
+                }
+               
+                // Close dropdown menu
+                document.getElementById('dropdown-menu').classList.remove('active');
+               
+                // Update active link styling
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('text-orange-500', 'font-medium');
+                    navLink.classList.add('text-gray-600');
+                });
+               
+                this.classList.remove('text-gray-600');
+                this.classList.add('text-orange-500', 'font-medium');
+            });
+        });
+
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your application! We will review it and get back to you soon.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
