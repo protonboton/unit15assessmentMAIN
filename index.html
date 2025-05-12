@@ -18,8 +18,9 @@
             color: white;
             font-weight: bold;
             border-radius: 8px;
+            cursor: pointer;
         }
-       
+        
         .company-image {
             width: 100%;
             height: 400px;
@@ -29,15 +30,15 @@
             justify-content: center;
             margin: 20px 0;
         }
-       
+        
         .course-card {
             transition: transform 0.3s ease;
         }
-       
+        
         .course-card:hover {
             transform: translateY(-5px);
         }
-       
+        
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -49,11 +50,11 @@
             border-radius: 0.5rem;
             width: 200px;
         }
-       
+        
         .dropdown-menu.active {
             display: block;
         }
-       
+        
         .dropdown-menu a {
             display: block;
             padding: 0.75rem 1rem;
@@ -61,45 +62,45 @@
             text-decoration: none;
             transition: all 0.2s ease;
         }
-       
+        
         .dropdown-menu a:hover {
             background-color: #ffedd5;
             color: #f97316;
         }
-       
+        
         .dropdown-menu a:first-child {
             border-top-left-radius: 0.5rem;
             border-top-right-radius: 0.5rem;
         }
-       
+        
         .dropdown-menu a:last-child {
             border-bottom-left-radius: 0.5rem;
             border-bottom-right-radius: 0.5rem;
         }
-       
+        
         .hamburger-btn {
             padding: 0.5rem;
             border-radius: 0.25rem;
             transition: all 0.2s ease;
         }
-       
+        
         .hamburger-btn:hover {
             background-color: #ffedd5;
         }
-       
+        
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
         }
-       
+        
         .logo-container {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
         }
-       
+        
         .trainee-image {
             width: 300px;
             height: 300px;
@@ -109,27 +110,27 @@
             justify-content: center;
             border-radius: 8px;
         }
-       
+        
         .trainee-section {
             display: flex;
             align-items: center;
             gap: 40px;
             margin-bottom: 60px;
         }
-       
+        
         .trainee-text {
             flex: 1;
         }
-       
+        
         /* Page transition */
         .page {
             display: none;
         }
-       
+        
         .page.active {
             display: block;
         }
-       
+        
         /* Form styling */
         .form-input {
             width: 100%;
@@ -140,18 +141,18 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-       
+        
         .form-input:focus {
             border-color: #f97316;
             outline: none;
             box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
         }
-       
+        
         .form-textarea {
             min-height: 150px;
             resize: vertical;
         }
-       
+        
         .submit-btn {
             background-color: #f97316;
             color: white;
@@ -159,15 +160,15 @@
             border: none;
             border-radius: 0.5rem;
             font-weight: 600;
-            cursor: pointer;
+            cursor: placeholder;
             transition: all 0.3s ease;
         }
-       
+        
         .submit-btn:hover {
             background-color: #ea580c;
             transform: translateY(-2px);
         }
-       
+        
         .form-image {
             width: 100%;
             max-width: 600px;
@@ -179,6 +180,61 @@
             justify-content: center;
             border-radius: 0.5rem;
         }
+        
+        .job-specs-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .job-role-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .job-role-image {
+            width: 300px;
+            height: 300px;
+            background-color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+        
+        .job-role-text {
+            flex: 1;
+        }
+        
+        /* Privacy Policy Page Styling */
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .privacy-content h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        
+        .privacy-content p {
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+        
+        .privacy-content ul {
+            list-style-type: disc;
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
@@ -188,14 +244,14 @@
             <div class="header-content">
                 <!-- Empty div to balance the hamburger menu -->
                 <div class="w-8"></div>
-               
+                
                 <!-- Logo container centered absolutely -->
                 <div class="logo-container">
-                    <div class="logo-placeholder">
+                    <div class="logo-placeholder" id="logo-home">
                         HOT BEANS WEB
                     </div>
                 </div>
-               
+                
                 <!-- Hamburger menu button -->
                 <div class="relative">
                     <button id="menu-toggle" class="hamburger-btn text-gray-700 focus:outline-none">
@@ -205,21 +261,20 @@
                         <a href="#" class="nav-link text-orange-500 font-medium" data-page="company-info">Company Info</a>
                         <a href="#" class="nav-link text-gray-600" data-page="existing-trainees">Existing Trainees</a>
                         <a href="#" class="nav-link text-gray-600" data-page="application-form">Application Form</a>
-                        <a href="#" class="nav-link text-gray-600">Job Roles</a>
+                        <a href="#" class="nav-link text-gray-600" data-page="job-roles">Job Roles</a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
-
+    
     <!-- Company Info Page (Home) -->
     <main id="company-info" class="page active container mx-auto px-4 py-8">
         <!-- Company image placeholder -->
         <div class="company-image rounded-lg">
             <span class="text-gray-500 text-xl">Company Image Placeholder</span>
         </div>
-               
+        
         <!-- Company description -->
         <section class="mb-12">
             <h1 class="text-3xl font-bold text-gray-800 mb-6">About Hot Beans Web</h1>
@@ -229,12 +284,12 @@
                 <p class="mt-4">We pride ourselves on our collaborative approach, working closely with clients to understand their unique needs and deliver tailored solutions that exceed expectations. Our company culture fosters creativity, continuous learning, and professional growth.</p>
             </div>
         </section>
-               
+        
         <!-- Web development courses section -->
         <section class="mb-16">
             <h2 class="text-2xl font-bold text-gray-800 mb-6">Web Development Courses</h2>
             <p class="text-gray-600 mb-6">Interested in becoming a web developer? Check out these recommended courses to get started:</p>
-                       
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Course card 1 -->
                 <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
@@ -247,7 +302,7 @@
                         <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
                     </div>
                 </div>
-                               
+                
                 <!-- Course card 2 -->
                 <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
                     <div class="h-40 bg-purple-100 flex items-center justify-center">
@@ -259,7 +314,7 @@
                         <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
                     </div>
                 </div>
-                               
+                
                 <!-- Course card 3 -->
                 <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
                     <div class="h-40 bg-green-100 flex items-center justify-center">
@@ -274,8 +329,7 @@
             </div>
         </section>
     </main>
-
-
+    
     <!-- Existing Trainees Page -->
     <main id="existing-trainees" class="page container mx-auto px-4 py-8">
         <!-- Introduction to trainees -->
@@ -286,7 +340,7 @@
                 <p class="mt-4">Here are some of our current trainees who are making waves in our development team. Each brings unique skills and perspectives to our projects, helping us deliver innovative solutions to our clients.</p>
             </div>
         </section>
-       
+        
         <!-- Trainee 1 -->
         <section class="trainee-section">
             <div class="trainee-image">
@@ -298,7 +352,7 @@
                 <p class="text-gray-600">Specializing in frontend development with React, Sarah has already contributed to three major client projects and is now leading the UI development for a new e-commerce platform.</p>
             </div>
         </section>
-       
+        
         <!-- Trainee 2 -->
         <section class="trainee-section">
             <div class="trainee-text">
@@ -310,7 +364,7 @@
                 <span class="text-gray-500">Trainee Photo</span>
             </div>
         </section>
-       
+        
         <!-- Trainee 3 -->
         <section class="trainee-section">
             <div class="trainee-image">
@@ -323,13 +377,12 @@
             </div>
         </section>
     </main>
-
-
+    
     <!-- Application Form Page -->
     <main id="application-form" class="page container mx-auto px-4 py-8">
         <!-- Form title -->
         <h1 class="text-3xl font-bold text-gray-800 mb-6 ml-4">Join Our Team</h1>
-       
+        
         <!-- Form introduction -->
         <section class="mb-12 text-center max-w-3xl mx-auto">
             <h2 class="text-2xl font-semibold text-gray-700 mb-4">Application for Web Development Trainee Position</h2>
@@ -338,7 +391,7 @@
                 Our team will review your application and get back to you within 2 weeks.
             </p>
         </section>
-       
+        
         <!-- Application form -->
         <form class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
             <!-- Name input -->
@@ -346,38 +399,199 @@
                 <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
                 <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
             </div>
-           
+            
             <!-- Email input -->
             <div>
                 <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                <input type="email" id="email" class="form-input" placeholder="Enter your email address" required>
+                <input type="email id="email" class="form-input" placeholder="Enter your email address" required>
             </div>
-           
+            
             <!-- Experience input -->
             <div>
                 <label for="experience" class="block text-gray-700 font-medium mb-2">Web Development Experience</label>
                 <input type="text" id="experience" class="form-input" placeholder="Briefly describe your experience (years, projects, etc.)">
             </div>
-           
+            
             <!-- Suitability input -->
             <div>
                 <label for="suitability" class="block text-gray-700 font-medium mb-2">Why You're a Good Fit</label>
                 <textarea id="suitability" class="form-input form-textarea" placeholder="Explain why you think you'd be a great fit for our trainee program"></textarea>
             </div>
-           
+            
             <!-- Submit button -->
             <div class="text-center">
                 <button type="submit" class="submit-btn">Submit Application</button>
             </div>
         </form>
-       
+        
         <!-- Stock photo placeholder -->
         <div class="form-image">
             <span class="text-gray-500">Stock Photo Placeholder</span>
         </div>
     </main>
-
-
+    
+    <!-- Job Roles Page -->
+    <main id="job-roles" class="page container mx-auto px-4 py-8">
+        <!-- Job specifications box -->
+        <div class="job-specs-box">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Job Specifications</h1>
+            <p class="text-gray-600">
+                At Hot Beans Web, we offer exciting opportunities in various web development roles.
+                Below you'll find details about our current openings and the skills required for each position.
+                We're looking for passionate individuals who are eager to learn and grow in the web development field.
+            </p>
+        </div>
+        
+        <!-- Web Designer Role -->
+        <section class="job-role-section">
+            <div class="job-role-text">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Web Designer</h2>
+                <p class="text-gray-600 mb-4">
+                    Our Web Designers are responsible for creating visually appealing and user-friendly interfaces.
+                    They work closely with clients to understand their brand identity and translate it into
+                    beautiful, functional designs.
+                </p>
+                <p class="text-gray-600">
+                    <strong>Key Responsibilities:</strong> Creating wireframes and mockups, designing UI elements,
+                    ensuring brand consistency, collaborating with developers, and staying updated with design trends.
+                </p>
+                <p class="text-gray-600 mt-4">
+                    <strong>Requirements:</strong> Proficiency in design tools like Adobe XD or Figma,
+                    understanding of UX principles, knowledge of HTML/CSS, and a strong portfolio.
+                </p>
+            </div>
+            <div class="job-role-image">
+                <span class="text-gray-500">Web Designer Image</span>
+            </div>
+        </section>
+        
+        <!-- Web Developer Role -->
+        <section class="job-role-section">
+            <div class="job-role-image">
+                <span class="text-gray-500">Web Developer Image</span>
+            </div>
+            <div class="job-role-text">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Web Developer</h2>
+                <p class="text-gray-600 mb-4">
+                    Our Web Developers bring designs to life by writing clean, efficient code.
+                    They implement functionality, optimize performance, and ensure cross-browser compatibility.
+                </p>
+                <p class="text-gray-600">
+                    <strong>Key Responsibilities:</strong> Developing responsive websites, implementing APIs,
+                    debugging and testing code, optimizing for speed and scalability, and collaborating with designers.
+                </p>
+                <p class="text-gray-600 mt-4">
+                    <strong>Requirements:</strong> Proficiency in HTML, CSS, JavaScript, experience with frameworks
+                    like React or Vue, understanding of backend technologies, and problem-solving skills.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Web development courses section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Web Development Courses</h2>
+            <p class="text-gray-600 mb-6">Interested in developing skills for these roles? Check out these recommended courses:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Course card 1 -->
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                    <div class="h-40 bg-blue-100 flex items-center justify-center">
+                        <span class="text-blue-500">Course Image</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Frontend Development</h3>
+                        <p class="text-gray-600 mb-4">Learn HTML, CSS, and JavaScript to build beautiful, interactive websites.</p>
+                        <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
+                    </div>
+                </div>
+                
+                <!-- Course card 2 -->
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                    <div class="h-40 bg-purple-100 flex items-center justify-center">
+                        <span class="text-purple-500">Course Image</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Backend Development</h3>
+                        <p class="text-gray-600 mb-4">Master server-side programming with Node.js, Python, or PHP.</p>
+                        <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
+                    </div>
+                </div>
+                
+                <!-- Course card 3 -->
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                    <div class="h-40 bg-green-100 flex items-center justify-center">
+                        <span class="text-green-500">Course Image</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Full-Stack Development</h3>
+                        <p class="text-gray-600 mb-4">Become a versatile developer by learning both frontend and backend technologies.</p>
+                        <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Privacy Policy Page -->
+    <main id="privacy-policy" class="page container mx-auto px-4 py-8">
+        <div class="privacy-content">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Privacy Policy</h1>
+            
+            <p>Last Updated: January 1, 2023</p>
+            
+            <p>Hot Beans Web ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website hotbeansweb.com (the "Site"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the Site.</p>
+            
+            <h2>1. Information We Collect</h2>
+            <p>We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
+            <ul>
+                <li><strong>Personal Data:</strong> Personally identifiable information, such as your name, email address, and telephone number, that you voluntarily give to us when you register with the Site or when you choose to participate in various activities related to the Site.</li>
+                <li><strong>Derivative Data:</strong> Information our servers automatically collect when you access the Site, such as your IP address, browser type, operating system, access times, and the pages you have viewed directly before and after accessing the Site.</li>
+                <li><strong>Cookies and Tracking Technologies:</strong> We may use cookies, web beacons, tracking pixels, and other tracking technologies on the Site to help customize the Site and improve your experience.</li>
+            </ul>
+            
+            <h2>2. Use of Your Information</h2>
+            <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:</p>
+            <ul>
+                <li>Create and manage your account.</li>
+                <li>Process your applications and requests.</li>
+                <li>Email you regarding your account or order.</li>
+                <li>Fulfill and manage purchases, orders, payments, and other transactions related to the Site.</li>
+                <li>Generate a personal profile about you to make future visits to the Site more personalized.</li>
+                <li>Increase the efficiency and operation of the Site.</li>
+                <li>Monitor and analyze usage and trends to improve your experience with the Site.</li>
+                <li>Notify you of updates to the Site.</li>
+                <li>Offer new products, services, and/or recommendations to you.</li>
+                <li>Perform other business activities as needed.</li>
+            </ul>
+            
+            <h2>3. Disclosure of Your Information</h2>
+            <p>We may share information we have collected about you in certain situations. Your information may be disclosed as follows:</p>
+            <ul>
+                <li><strong>By Law or to Protect Rights:</strong> If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may share your information as permitted or required by any applicable law, rule, or regulation.</li>
+                <li><strong>Third-Party Service Providers:</strong> We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.</li>
+                <li><strong>Business Transfers:</strong> We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</li>
+            </ul>
+            
+            <h2>4. Security of Your Information</h2>
+            <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
+            
+            <h2>5. Policy for Children</h2>
+            <p>We do not knowingly solicit information from or market to children under the age of 13. If you become aware of any data we have collected from children under age 13, please contact us immediately.</p>
+            
+            <h2>6. Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
+            
+            <h2>7. Contact Us</h2>
+            <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
+            <p>
+                Hot Beans Web<br>
+                123 Tech Street, Digital City<br>
+                Email: privacy@hotbeansweb.com<br>
+                Phone: (123) 456-7890
+            </p>
+        </div>
+    </main>
+    
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4">
@@ -389,7 +603,7 @@
                     <p class="text-gray-300">Email: info@hotbeansweb.com</p>
                 </div>
                 <div>
-                    <a href="#" class="text-orange-400 hover:underline">Privacy Policy</a>
+                    <a href="#" class="text-orange-400 hover:underline" id="privacy-link">Privacy Policy</a>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
@@ -397,65 +611,106 @@
             </div>
         </div>
     </footer>
-
-
+    
     <script>
         // Hamburger menu functionality
         document.getElementById('menu-toggle').addEventListener('click', function(e) {
             e.stopPropagation(); // Prevent the click from bubbling up
             document.getElementById('dropdown-menu').classList.toggle('active');
         });
-
-
+        
         // Close dropdown when clicking outside
         document.addEventListener('click', function() {
             const dropdown = document.getElementById('dropdown-menu');
             dropdown.classList.remove('active');
         });
-
-
+        
         // Prevent dropdown from closing when clicking inside it
         document.getElementById('dropdown-menu').addEventListener('click', function(e) {
             e.stopPropagation();
         });
-
-
+        
         // Page navigation functionality
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const pageId = this.getAttribute('data-page');
-               
+                
                 // Hide all pages
                 document.querySelectorAll('.page').forEach(page => {
                     page.classList.remove('active');
                 });
-               
+                
                 // Show selected page
                 if (pageId) {
                     document.getElementById(pageId).classList.add('active');
                 }
-               
+                
                 // Close dropdown menu
                 document.getElementById('dropdown-menu').classList.remove('active');
-               
+                
                 // Update active link styling
                 document.querySelectorAll('.nav-link').forEach(navLink => {
                     navLink.classList.remove('text-orange-500', 'font-medium');
                     navLink.classList.add('text-gray-600');
                 });
-               
+                
                 this.classList.remove('text-gray-600');
                 this.classList.add('text-orange-500', 'font-medium');
             });
         });
-
-
+        
         // Form submission handling
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your application! We will review it and get back to you soon.');
             this.reset();
+        });
+        
+        // Privacy Policy link functionality
+        document.getElementById('privacy-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show privacy policy page
+            document.getElementById('privacy-policy').classList.add('active');
+            
+            // Reset all nav links to default styling
+            document.querySelectorAll('.nav-link').forEach(navLink => {
+                navLink.classList.remove('text-orange-500', 'font-medium');
+                navLink.classList.add('text-gray-600');
+            });
+            
+            // Close dropdown menu if open
+            document.getElementById('dropdown-menu').classList.remove('active');
+        });
+        
+        // Logo click functionality to return to company info page
+        document.getElementById('logo-home').addEventListener('click', function() {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show company info page
+            document.getElementById('company-info').classList.add('active');
+            
+            // Update active link styling
+            document.querySelectorAll('.nav-link').forEach(navLink => {
+                navLink.classList.remove('text-orange-500', 'font-medium');
+                navLink.classList.add('text-gray-600');
+            });
+            
+            // Set company info link as active
+            document.querySelector('.nav-link[data-page="company-info"]').classList.remove('text-gray-600');
+            document.querySelector('.nav-link[data-page="company-info"]').classList.add('text-orange-500', 'font-medium');
+            
+            // Close dropdown menu if open
+            document.getElementById('dropdown-menu').classList.remove('active');
         });
     </script>
 </body>
