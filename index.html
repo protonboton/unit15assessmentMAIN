@@ -11,13 +11,9 @@
         .logo-placeholder {
             width: 200px;
             height: 80px;
-            background-color: #f97316;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: bold;
-            border-radius: 8px;
             cursor: pointer;
         }
         
@@ -235,6 +231,11 @@
             margin-left: 2rem;
             margin-bottom: 1rem;
         }
+        
+        .company-logo {
+            height: 80px;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
@@ -248,7 +249,7 @@
                 <!-- Logo container centered absolutely -->
                 <div class="logo-container">
                     <div class="logo-placeholder" id="logo-home">
-                        HOT BEANS WEB
+                        <img src="hotbeansweblogo.png" alt="Hot Beans Web Logo" class="company-logo">
                     </div>
                 </div>
                 
@@ -289,7 +290,7 @@
         <section class="mb-16">
             <h2 class="text-2xl font-bold text-gray-800 mb-6">Web Development Courses</h2>
             <p class="text-gray-600 mb-6">Interested in becoming a web developer? Check out these recommended courses to get started:</p>
-            
+                    
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Course card 1 -->
                 <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
@@ -302,7 +303,7 @@
                         <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
                     </div>
                 </div>
-                
+                                
                 <!-- Course card 2 -->
                 <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
                     <div class="h-40 bg-purple-100 flex items-center justify-center">
@@ -314,7 +315,7 @@
                         <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
                     </div>
                 </div>
-                
+                                
                 <!-- Course card 3 -->
                 <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
                     <div class="h-40 bg-green-100 flex items-center justify-center">
@@ -399,25 +400,25 @@
                 <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
                 <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
             </div>
-            
+                    
             <!-- Email input -->
             <div>
                 <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
                 <input type="email id="email" class="form-input" placeholder="Enter your email address" required>
             </div>
-            
+                    
             <!-- Experience input -->
             <div>
                 <label for="experience" class="block text-gray-700 font-medium mb-2">Web Development Experience</label>
                 <input type="text" id="experience" class="form-input" placeholder="Briefly describe your experience (years, projects, etc.)">
             </div>
-            
+                    
             <!-- Suitability input -->
             <div>
                 <label for="suitability" class="block text-gray-700 font-medium mb-2">Why You're a Good Fit</label>
                 <textarea id="suitability" class="form-input form-textarea" placeholder="Explain why you think you'd be a great fit for our trainee program"></textarea>
             </div>
-            
+                    
             <!-- Submit button -->
             <div class="text-center">
                 <button type="submit" class="submit-btn">Submit Application</button>
@@ -491,7 +492,7 @@
         <section class="mb-16">
             <h2 class="text-2xl font-bold text-gray-800 mb-6">Web Development Courses</h2>
             <p class="text-gray-600 mb-6">Interested in developing skills for these roles? Check out these recommended courses:</p>
-            
+                    
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Course card 1 -->
                 <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
@@ -504,7 +505,7 @@
                         <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
                     </div>
                 </div>
-                
+                                
                 <!-- Course card 2 -->
                 <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
                     <div class="h-40 bg-purple-100 flex items-center justify-center">
@@ -516,7 +517,7 @@
                         <a href="#" class="text-orange-500 font-medium hover:underline">View Course →</a>
                     </div>
                 </div>
-                
+                                
                 <!-- Course card 3 -->
                 <div class="course-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
                     <div class="h-40 bg-green-100 flex items-center justify-center">
@@ -536,11 +537,11 @@
     <main id="privacy-policy" class="page container mx-auto px-4 py-8">
         <div class="privacy-content">
             <h1 class="text-3xl font-bold text-gray-800 mb-6">Privacy Policy</h1>
-            
+                    
             <p>Last Updated: January 1, 2023</p>
-            
+                    
             <p>Hot Beans Web ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website hotbeansweb.com (the "Site"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the Site.</p>
-            
+                    
             <h2>1. Information We Collect</h2>
             <p>We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
             <ul>
@@ -548,7 +549,7 @@
                 <li><strong>Derivative Data:</strong> Information our servers automatically collect when you access the Site, such as your IP address, browser type, operating system, access times, and the pages you have viewed directly before and after accessing the Site.</li>
                 <li><strong>Cookies and Tracking Technologies:</strong> We may use cookies, web beacons, tracking pixels, and other tracking technologies on the Site to help customize the Site and improve your experience.</li>
             </ul>
-            
+                    
             <h2>2. Use of Your Information</h2>
             <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:</p>
             <ul>
@@ -563,7 +564,7 @@
                 <li>Offer new products, services, and/or recommendations to you.</li>
                 <li>Perform other business activities as needed.</li>
             </ul>
-            
+                    
             <h2>3. Disclosure of Your Information</h2>
             <p>We may share information we have collected about you in certain situations. Your information may be disclosed as follows:</p>
             <ul>
@@ -571,16 +572,16 @@
                 <li><strong>Third-Party Service Providers:</strong> We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.</li>
                 <li><strong>Business Transfers:</strong> We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</li>
             </ul>
-            
+                    
             <h2>4. Security of Your Information</h2>
             <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
-            
+                    
             <h2>5. Policy for Children</h2>
             <p>We do not knowingly solicit information from or market to children under the age of 13. If you become aware of any data we have collected from children under age 13, please contact us immediately.</p>
-            
+                    
             <h2>6. Changes to This Privacy Policy</h2>
             <p>We may update this Privacy Policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
-            
+                    
             <h2>7. Contact Us</h2>
             <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
             <p>
@@ -670,21 +671,21 @@
         // Privacy Policy link functionality
         document.getElementById('privacy-link').addEventListener('click', function(e) {
             e.preventDefault();
-            
+                    
             // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            
+                    
             // Show privacy policy page
             document.getElementById('privacy-policy').classList.add('active');
-            
+                    
             // Reset all nav links to default styling
             document.querySelectorAll('.nav-link').forEach(navLink => {
                 navLink.classList.remove('text-orange-500', 'font-medium');
                 navLink.classList.add('text-gray-600');
             });
-            
+                    
             // Close dropdown menu if open
             document.getElementById('dropdown-menu').classList.remove('active');
         });
@@ -695,20 +696,20 @@
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            
+                    
             // Show company info page
             document.getElementById('company-info').classList.add('active');
-            
+                    
             // Update active link styling
             document.querySelectorAll('.nav-link').forEach(navLink => {
                 navLink.classList.remove('text-orange-500', 'font-medium');
                 navLink.classList.add('text-gray-600');
             });
-            
+                    
             // Set company info link as active
             document.querySelector('.nav-link[data-page="company-info"]').classList.remove('text-gray-600');
             document.querySelector('.nav-link[data-page="company-info"]').classList.add('text-orange-500', 'font-medium');
-            
+                    
             // Close dropdown menu if open
             document.getElementById('dropdown-menu').classList.remove('active');
         });
